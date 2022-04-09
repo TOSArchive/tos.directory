@@ -32,6 +32,8 @@ async fn main_anyhow() -> anyhow::Result<()> {
         .unwrap_or(Ok(8080))
         .context("Invalid port.")?;
 
+    log::info!("Binding to {{{address}:{port}}}");
+
     HttpServer::new(|| {
         let initial = App::new().app_data(Data::new(service::ServiceContext::new()));
         vec![service::info_service()]
