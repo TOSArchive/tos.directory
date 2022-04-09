@@ -26,7 +26,7 @@ async fn main_anyhow() -> anyhow::Result<()> {
 
     log::info!("Logger initialized.");
 
-    let address = std::env::var("SERVICE_ADDRESS").unwrap_or("127.0.0.1".to_string());
+    let address = std::env::var("SERVICE_ADDRESS").unwrap_or("0.0.0.0".to_string());
     let port = std::env::var("SERVICE_PORT")
         .map(|source| source.parse::<u16>())
         .unwrap_or(Ok(8080))
