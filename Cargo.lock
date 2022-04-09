@@ -165,7 +165,7 @@ dependencies = [
  "serde_urlencoded",
  "smallvec",
  "socket2",
- "time",
+ "time 0.3.9",
  "url",
 ]
 
@@ -221,6 +221,12 @@ checksum = "697ed7edc0f1711de49ce108c541623a0af97c6c60b2f6e2b65229847ac843c2"
 dependencies = [
  "alloc-no-stdlib",
 ]
+
+[[package]]
+name = "anyhow"
+version = "1.0.56"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4361135be9122e0870de935d7c439aef945b9f9ddd4199a553b5270b49c82a27"
 
 [[package]]
 name = "autocfg"
@@ -351,6 +357,7 @@ dependencies = [
  "libc",
  "num-integer",
  "num-traits",
+ "time 0.1.44",
  "winapi",
 ]
 
@@ -389,7 +396,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "94d4706de1b0fa5b132270cddffa8585166037822e260a944fe161acd137ca05"
 dependencies = [
  "percent-encoding",
- "time",
+ "time 0.3.9",
  "version_check",
 ]
 
@@ -485,6 +492,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e88a8acf291dafb59c2d96e8f59828f3838bb1a70398823ade51a84de6a6deed"
 
 [[package]]
+name = "fern"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8c9a4820f0ccc8a7afd67c39a0f1a0f4b07ca1725164271a64939d7aeb9af065"
+dependencies = [
+ "log",
+]
+
+[[package]]
 name = "firestorm"
 version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -575,7 +591,7 @@ checksum = "9be70c98951c83b8d2f8f60d7065fa6d5146873094452a1008da8c2f1e4205ad"
 dependencies = [
  "cfg-if",
  "libc",
- "wasi 0.10.2+wasi-snapshot-preview1",
+ "wasi 0.10.0+wasi-snapshot-preview1",
 ]
 
 [[package]]
@@ -1151,6 +1167,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ce31e24b01e1e524df96f1c2fdd054405f8d7376249a5110886fb4b658484789"
 
 [[package]]
+name = "serde_derive"
+version = "1.0.136"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "08597e7152fcd306f41838ed3e37be9eaeed2b61c42e2117266a554fab4662f9"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "serde_json"
 version = "1.0.79"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1286,6 +1313,17 @@ dependencies = [
 
 [[package]]
 name = "time"
+version = "0.1.44"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6db9e6914ab8b1ae1c260a4ae7a49b6c5611b40328a735b21862567685e73255"
+dependencies = [
+ "libc",
+ "wasi 0.10.0+wasi-snapshot-preview1",
+ "winapi",
+]
+
+[[package]]
+name = "time"
 version = "0.3.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c2702e08a7a860f005826c6815dcac101b19b5eb330c27fe4a5928fec1d20ddd"
@@ -1354,6 +1392,13 @@ name = "tos_directory"
 version = "0.1.0"
 dependencies = [
  "actix-web",
+ "anyhow",
+ "chrono",
+ "fern",
+ "log",
+ "serde",
+ "serde_derive",
+ "serde_json",
  "tera",
 ]
 
@@ -1513,9 +1558,9 @@ dependencies = [
 
 [[package]]
 name = "wasi"
-version = "0.10.2+wasi-snapshot-preview1"
+version = "0.10.0+wasi-snapshot-preview1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fd6fbd9a79829dd1ad0cc20627bf1ed606756a7f77edff7b66b7064f9cb327c6"
+checksum = "1a143597ca7c7793eff794def352d41792a93c481eb1042423ff7ff72ba2c31f"
 
 [[package]]
 name = "wasi"
